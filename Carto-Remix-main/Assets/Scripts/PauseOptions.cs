@@ -24,6 +24,11 @@ public class PauseOptions : MonoBehaviour
             //Debug.Log("Escape Pressed");
             isGamePaused = !isGamePaused;
             pauseBox.SetActive(!pauseBox.activeInHierarchy);
+            if(isGamePaused) {
+                Time.timeScale = 0f;
+            } else {
+                Time.timeScale = 1f;
+            }
         }
     }
 }

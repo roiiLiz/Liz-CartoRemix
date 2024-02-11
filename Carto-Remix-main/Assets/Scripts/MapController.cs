@@ -50,8 +50,6 @@ public class MapController : MonoBehaviour
     // all the button press controls
     void OnGUI()
     {
-        if (PauseOptions.isGamePaused) {
-        } else {
             // M to bring up map/menu
             if (Event.current.Equals(Event.KeyboardEvent("M")))
             {
@@ -320,7 +318,7 @@ public class MapController : MonoBehaviour
             //moves map selector
             selector.GetComponent<RectTransform>().anchoredPosition = selectorPos;
         }
-    }
+    
 
     // function that adds tiles to the storage, another script will call this function
     public void addTile(int num)

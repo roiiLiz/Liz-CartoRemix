@@ -2132,7 +2132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &602899198
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3530,7 +3530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &894585243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4032,6 +4032,7 @@ MonoBehaviour:
   - {fileID: 1680682442072957114, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
   - {fileID: 1680682442072957114, guid: d6d246ca2797dd046859a7ba821ad5a6, type: 3}
   - {fileID: 1680682442072957114, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
+  hpHUD: {fileID: 1104833778}
   storageUI: {fileID: 99389315}
   mapUI: {fileID: 1993227270}
   selector: {fileID: 2075430518}
@@ -4047,7 +4048,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965939957}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -4289,8 +4290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa18f9dbc42c95548a3e67b37f8e0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightCheckbox: {fileID: 0}
-  exploreCheckbox: {fileID: 0}
+  nightCheckbox: {fileID: 1957037220}
+  exploreCheckbox: {fileID: 1824281391}
   pauseBox: {fileID: 894585242}
 --- !u!224 &1009758357
 RectTransform:
@@ -5111,7 +5112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1395425577
 RectTransform:
   m_ObjectHideFlags: 0
