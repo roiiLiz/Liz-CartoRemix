@@ -15,8 +15,13 @@ public class PauseOptions : MonoBehaviour
     }
 
     void CheckModes() {
-        nightCheckbox.isOn = OptionsMenu.nightMode;
-        exploreCheckbox.isOn = OptionsMenu.exploreMode;
+        Debug.Log($"Mode Checker: Night Mode- {OptionsMenu.nightMode}, Explore Mode: {OptionsMenu.exploreMode}");
+        if(OptionsMenu.nightMode) {
+            nightCheckbox.isOn = true;
+        }
+        if (OptionsMenu.exploreMode) {
+            exploreCheckbox.isOn = true;
+        }
     }
 
     void Update() {
@@ -24,6 +29,11 @@ public class PauseOptions : MonoBehaviour
             //Debug.Log("Escape Pressed");
             isGamePaused = !isGamePaused;
             pauseBox.SetActive(!pauseBox.activeInHierarchy);
+            if(isGamePaused) {
+                Time.timeScale = 0f;
+            } else {
+                Time.timeScale = 1f;
+            }
         }
     }
 }

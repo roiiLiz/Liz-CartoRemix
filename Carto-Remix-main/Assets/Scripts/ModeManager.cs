@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        CheckModes();
+    [SerializeField] public GameObject[] Tiles;
+    [SerializeField] public GameObject MysteryTile;
+
+    void Start() {
+        EnableModes();
     }
 
-    void CheckModes() {
-        Debug.Log($"Mode Checker: Night Mode- {OptionsMenu.nightMode}, Explore Mode: {OptionsMenu.exploreMode}");
+    void EnableModes() {
+        //Debug.Log($"Mode Checker: Night Mode- {OptionsMenu.nightMode}, Explore Mode: {OptionsMenu.exploreMode}");
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //Debug.Log($"Enemies Length: {enemies.Length}");
+
+        if (OptionsMenu.exploreMode) {
+            for (int i = 0; i < enemies.Length; i++) {
+                enemies[i].SetActive(false);
+            }
+        } 
     }
 }
