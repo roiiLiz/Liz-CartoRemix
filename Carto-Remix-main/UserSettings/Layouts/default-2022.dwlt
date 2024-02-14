@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 973
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 95
+  controlID: 98
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 94
+  controlID: 97
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 47
+  controlID: 41
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48
+  controlID: 42
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -322,8 +322,8 @@ MonoBehaviour:
     y: 0
     width: 360
     height: 615
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -374,7 +374,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Liz\Downloads\School Work\2024\Game Production\Project
     1\CartoRemix_Repo\Liz-CartoRemix\Carto-Remix-main
@@ -390,9 +390,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 786e0000
-    m_LastClickedID: 28280
-    m_ExpandedIDs: 00000000786e000000ca9a3b
+    m_SelectedIDs: 74640000
+    m_LastClickedID: 25716
+    m_ExpandedIDs: 000000005e64000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,7 +420,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000786e0000
+    m_ExpandedIDs: 000000005e640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -512,7 +512,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 99502
+  m_LastSelectedObjectID: 57320
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -737,23 +737,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 906e0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: dc15fdff2416fdffaa1bfdffde1ffdff0620fdff7020fdff4425fdff2c2afdffbe2dfdff062efdff8c33fdffc037fdffe837fdff5e38fdff523efdff4444fdffec47fdff3448fdffd64dfdff0a52fdff3252fdff4e5afdfff666fdffd06efdff1881fdff20a3fdff14bffdff1cc7fdffb4cffdffb6d0fdffc6fffdffc63efeff2643feff8247feffde4bfeff3e50feff605afefff864feff5469feff7874feff5e7afeffa481feff3886feff048bfeffcebffeff72c4feffeae1feff46e6feff82ecfeffaef6feffa2fefeffdc10ffffb215ffff3657ffff0461ffff2a66ffff5876ffff0a7bffff667ffffff289ffffa497ffffc6bbffff3af7ffff3a670000b26700009a6800001c690000109200001c9200004cbe000064c70000aeca0000fccb000042d4000046e5000018e600009ee600001e050100280501008c17010096170100ee180100a81a01007a1b0100d22001002a2201003a380100743a01007e3a0100525d01005e6001007c6301004e6401008866010092660100a6690100fe6a01002a710100f2750100fc750100e2790100648501009c85010036860100e80c02009a0e02004e17020076170200bc1e0200f0230200b85602000857020070570200c6570200ea580200ce78020036790200a07a020092ab0200f8b802004ad5020054db0200
+      m_ExpandedIDs: b48efffffc8effff9e94ffffd298fffffa98ffffd8a1ffff86a6ffffcea6ffff7cacffffbcb0fffff0b0ffff8abaffff12bcfffff0c0ffff46c1ffffb8c6ffff82d4ffffcad4ffff4cdaffff7cdeffffa0deffff26e4ffffb8e7ffff00e8ffff9eedffffcef1fffff2f1ffff0cf7ffffb4f9ffff0afbffff2a660000706700009867000070840000f48500009a9b0000ac9b00005c9c00006a9d0000b89f00002ab500004ab50000c0b50000e4b6000018b700009cbe0000e2bf00001acb000024de0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Tile 1
+        m_OriginalName: Tile 1
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -17020
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1132,9 +1132,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 614.05994, y: 274.31183, z: 3.7111018}
+    m_Target: {x: 471.80316, y: 317.57, z: 4.581176}
     speed: 2
-    m_Value: {x: 614.05994, y: 274.31183, z: 3.7111018}
+    m_Value: {x: 471.80316, y: 317.57, z: 4.581176}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1184,9 +1184,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 347.06354
+    m_Target: 359.02408
     speed: 2
-    m_Value: 347.06354
+    m_Value: 359.02408
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1256,7 +1256,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1264,17 +1264,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Liz\Downloads\School Work\2024\Game Production\Project
     1\CartoRemix_Repo\Liz-CartoRemix\Carto-Remix-main
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 11}
-    m_SelectedIDs: 906e0000
-    m_LastClickedID: 28304
-    m_ExpandedIDs: 00000000786e00008c6e000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 5e640000
+    m_LastClickedID: 25694
+    m_ExpandedIDs: 000000005e64000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1302,7 +1302,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000786e0000
+    m_ExpandedIDs: 000000005e640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
