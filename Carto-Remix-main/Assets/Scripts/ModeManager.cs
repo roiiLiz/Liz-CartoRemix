@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class ModeManager : MonoBehaviour
 {
-    [SerializeField] public GameObject[] Tiles;
-    [SerializeField] public GameObject MysteryTile;
+
+    public GameObject[] enemies;
 
     void Start() {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         EnableModes();
     }
 
     void EnableModes() {
         //Debug.Log($"Mode Checker: Night Mode- {OptionsMenu.nightMode}, Explore Mode: {OptionsMenu.exploreMode}");
-        GameObject[] enemies;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //Debug.Log($"Enemies Length: {enemies.Length}");
 
         if (OptionsMenu.exploreMode) {
