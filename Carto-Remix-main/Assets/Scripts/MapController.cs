@@ -35,15 +35,32 @@ public class MapController : MonoBehaviour
     private int movestep;//moves at the same distance as the tile's size
     public int mapbounds;//sets the bounds for the map selector to be 7x7 which is more than enough
 
+    private bool onlyDoOnce;
+
     //public TextMeshProUGUI xButton; //might use these later
     //public TextMeshProUGUI spaceButton;
 
     private GameObject tile;
 
+    void Awake()
+    {
+        onlyDoOnce = true;
+    }
+
     void Start()
     {
         movestep = canvasGrid;
         placeAllWorldTiles();
+    }
+
+    void Update()
+    {
+        if (WorldTiles.totalPlacedTiles == 24) {
+            if (onlyDoOnce) {
+                onlyDoOnce = false;
+                placeWinnerTile();
+            }
+        }
     }
 
 
@@ -151,117 +168,112 @@ public class MapController : MonoBehaviour
                 //pick up the tile selected by selector
                 if (Event.current.Equals(Event.KeyboardEvent("space")))
                 {
-                if (holdingTile == null)
-                //if a tile is not picked up then pick up the selected tile
-                {
-
-                    if (FindClosestTile() != null && !FindClosestTile().isStatic) //dont pick up statics they stay there >:[
+                    if (holdingTile == null)
+                    //if a tile is not picked up then pick up the selected tile
                     {
+
                         holdingTile = FindClosestTile();
+                        //if (holdingTile.transform.parent == mapUI) 
+                        //{
+                        //    totalPlaced -= 1; //decrement total placed tiles when a player picks up a tile that's on the map. used to check when all tiles are placed
+                        //    Debug.Log("took away a tile:"+totalPlaced);
+                        //}
                         holdingTile.transform.SetParent(selector.transform);
                         selector.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                         if (toggleStorage)
                         {
                             ToggleStorage(0);
                         }
+
                     }
                     else
+                    //place a tile where the selector is
                     {
-                        Debug.Log("Probably tried to pick up nothing or tried to pick up a static tile");
-                    }
 
-                }
-                else
-                //place a tile where the selector is
-                {
+                        int layer = 6; //the tile trigger collider layer
+                        int layerMask = 1 << layer; //why does it have to be written like this??????????????
 
-                    int layer = 6; //the tile trigger collider layer
-                    int layerMask = 1 << layer; //why does it have to be written like this??????????????
+                        bool canPlace = true;
 
-                    bool canPlace = true;
+                        // Cast a ray in tile's UP transform
+                        hits = Physics2D.RaycastAll(selector.transform.position, holdingTile.transform.up, 100, layerMask);
 
-                    // Cast a ray in tile's UP transform
-                    hits = Physics2D.RaycastAll(selector.transform.position, holdingTile.transform.up, 100, layerMask);
-
-                    if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
-                    {
-                        if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                        if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
                         {
+                            if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                            {
+                            }
+                            else
+                            {
+                                canPlace = false;
+                            }
+                        }
+                        // Cast a ray in tile's DOWN transform
+                        hits = Physics2D.RaycastAll(selector.transform.position, -holdingTile.transform.up, 100, layerMask);
+
+                        if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
+                        {
+                            if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                            {
+                            }
+                            else
+                            {
+                                canPlace = false;
+                            }
+                        }
+                        // Cast a ray in tile's RIGHT transform
+                        hits = Physics2D.RaycastAll(selector.transform.position, holdingTile.transform.right, 100, layerMask);
+
+                        if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
+                        {
+                            if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                            {
+                            }
+                            else
+                            {
+                                canPlace = false;
+                            }
+                        }
+                        // Cast a ray in tile's LEFT transform
+                        hits = Physics2D.RaycastAll(selector.transform.position, -holdingTile.transform.right, 100, layerMask);
+
+                        if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
+                        {
+                            if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                            {
+                            }
+                            else
+                            {
+                                canPlace = false;
+                            }
+                        }
+
+                        //Debug.Log(canPlace);
+
+                        if (canPlace)
+                        {
+                            //totalPlaced += 1; //increment total placed by 1 when a tile is successfully placed, this is used to check when all tiles are placed.
+                            //Debug.Log("added a tile:" + totalPlaced); //still doesnt know if they are in the right places though..
+                            selector.transform.localScale = new Vector3(1, 1, 1);
+                            holdingTile.transform.SetParent(mapUI.transform);
+                            holdingTile.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
+                            holdingTile.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
+                            holdingTile.GetComponent<RectTransform>().anchoredPosition = selectorPos;
+
+                            //set world tiles after placement
+                            placeAllWorldTiles();
+                            holdingTile = null; //let rest of script know im not holding a tile
                         }
                         else
                         {
-                            canPlace = false;
+                            Debug.Log("cannot place this here!");
                         }
-                    }
-                    // Cast a ray in tile's DOWN transform
-                    hits = Physics2D.RaycastAll(selector.transform.position, -holdingTile.transform.up, 100, layerMask);
 
-                    if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
-                    {
-                        if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
+                        if (toggleStorage)
                         {
-                        }
-                        else
-                        {
-                            canPlace = false;
+                            ToggleStorage(0);
                         }
                     }
-                    // Cast a ray in tile's RIGHT transform
-                    hits = Physics2D.RaycastAll(selector.transform.position, holdingTile.transform.right, 100, layerMask);
-
-                    if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
-                    {
-                        if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
-                        {
-                        }
-                        else
-                        {
-                            canPlace = false;
-                        }
-                    }
-                    // Cast a ray in tile's LEFT transform
-                    hits = Physics2D.RaycastAll(selector.transform.position, -holdingTile.transform.right, 100, layerMask);
-
-                    if (hits.Length == 2) //if 2 hits are detected then that means player is trying to connect 2 pieces
-                    {
-                        if (hits[0].transform.name == hits[1].transform.name) //compare the border collider name of each side, if the name is the same then can place
-                        {
-                        }
-                        else
-                        {
-                            canPlace = false;
-                        }
-                    }
-
-                    if (FindClosestTile() != null) //if a tile is found at the cursor dont let player place it down
-                    {
-                        canPlace = false;
-                    }
-
-                    if (canPlace)
-                    {
-                        //totalPlaced += 1; //increment total placed by 1 when a tile is successfully placed, this is used to check when all tiles are placed.
-                        //Debug.Log("added a tile:" + totalPlaced); //still doesnt know if they are in the right places though..
-                        selector.transform.localScale = new Vector3(1, 1, 1);
-                        holdingTile.transform.SetParent(mapUI.transform);
-                        holdingTile.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
-                        holdingTile.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
-                        holdingTile.GetComponent<RectTransform>().anchoredPosition = selectorPos;
-
-                        //set world tiles after placement
-                        placeAllWorldTiles();
-                        holdingTile = null; //let rest of script know im not holding a tile
-                    }
-                    else
-                    {
-                        Debug.Log("cannot place this here!");
-                    }
-
-                    if (toggleStorage)
-                    {
-                        ToggleStorage(0);
-                    }
-                }
 
                 }
 
@@ -370,7 +382,7 @@ public class MapController : MonoBehaviour
             }
             else 
             {
-                mapbounds = 200;
+                mapbounds = 100;
                 selector.transform.SetParent(mapUI.transform, false);
                 selectorPos = new Vector2(0, 0);
                 movestep = canvasGrid;
@@ -392,7 +404,7 @@ public class MapController : MonoBehaviour
             }
             else //CLOSE UI
             {
-                mapbounds = 200;
+                mapbounds = 100;
                 //make this tween later
                 mapUI.GetComponent<RectTransform>().anchoredPosition = new Vector3(0,-120,0);
 
@@ -431,19 +443,15 @@ public class MapController : MonoBehaviour
         Vector3 position = selector.transform.position;
         foreach (GameObject go in gos)
         {
-            if (go != holdingTile)
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
             {
-                Vector3 diff = go.transform.position - position;
-                float curDistance = diff.sqrMagnitude;
-                if (curDistance < distance)
-                {
-                    closest = go;
-                    distance = curDistance;
-                }
+                closest = go;
+                distance = curDistance;
             }
         }
-        //Debug.Log(closest);
-        if (distance < 10) //if cursor is close enough to pick up and the object can be picked up (isstatic)
+        if (distance < 10 && !closest.isStatic) //if cursor is close enough to pick up and the object can be picked up (isstatic)
         {
             return closest;
         }
@@ -460,4 +468,4 @@ public class MapController : MonoBehaviour
         addTile(8);
     }
 
-}
+    }

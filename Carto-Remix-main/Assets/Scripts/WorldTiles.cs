@@ -50,7 +50,6 @@ public class WorldTiles : MonoBehaviour
     //void OnGUI()
     //{
 
-
     IEnumerator TestRoutine(float duration)
     {
         yield return new WaitForSecondsRealtime(duration);
@@ -133,7 +132,7 @@ public class WorldTiles : MonoBehaviour
             connectedWrong = true;
         }
         //Debug.Log(connectedRight + "|||"+ connectedWrong + "|||"+ totalPlacedTiles); //should be true false 16??? hmm
-        if (connectedRight && !connectedWrong && totalPlacedTiles == 16)
+        if (connectedRight && !connectedWrong && totalPlacedTiles == 24)
         {
             chickenDinner = true;
             canvas.GetComponent<MapController>().placeWinnerTile();

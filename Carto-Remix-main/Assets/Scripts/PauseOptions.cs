@@ -8,7 +8,7 @@ public class PauseOptions : MonoBehaviour
 {
     [SerializeField] public Toggle nightCheckbox;
     [SerializeField] public Toggle exploreCheckbox;
-    [SerializeField] public GameObject pauseBox;
+    public GameObject pauseBox;
     public static bool isGamePaused = false;
 
     void Start() {
@@ -27,13 +27,10 @@ public class PauseOptions : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            //Debug.Log("Escape Pressed");
-            isGamePaused = !isGamePaused;
-            pauseBox.SetActive(!pauseBox.activeInHierarchy);
-            if(isGamePaused) {
-                Time.timeScale = 0f;
+            if (isGamePaused) {
+                Resume();
             } else {
-                Time.timeScale = 1f;
+                Pause();
             }
         }
     }
@@ -41,5 +38,19 @@ public class PauseOptions : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Resume()
+    {
+        pauseBox.SetActive(false);
+        Time.timeScale = 1f;
+        isGamePaused = false;
+    }
+
+    void Pause()
+    {
+        pauseBox.SetActive(true);
+        Time.timeScale = 0f;
+        isGamePaused = true;
     }
 }
