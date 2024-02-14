@@ -123,6 +123,7 @@ public class CharacterControl: MonoBehaviour
             {
                 Debug.Log("YOU DEAD");
                 gameOver = true;
+                
                 speed = 0;
             }
         }
