@@ -56,7 +56,7 @@ public class MapController : MonoBehaviour
     void Update()
     {
         if (WorldTiles.totalPlacedTiles == 24) {
-            if (onlyDoOnce) {
+            if (onlyDoOnce && !OptionsMenu.exploreMode) {
                 onlyDoOnce = false;
                 placeWinnerTile();
             }
