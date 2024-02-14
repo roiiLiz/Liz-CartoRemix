@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterControl: MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class CharacterControl: MonoBehaviour
     public float speed = 100.0f;
     public float maxHealth = 6f;
     public static float health = 6f;
-    public RectTransform HPMASK;
+    public Image healthBar;
 
     public static bool gameOver = false;
 
@@ -25,12 +26,19 @@ public class CharacterControl: MonoBehaviour
 
     private float translationX;
     private float translationY;
-    private Vector3 heading = new Vector3(0,1,0);
+    private Vector3 heading = new Vector3(0, 1, 0);
 
+
+    Vector2 lookDirection = new Vector2(1, 0);
+
+    private Animator animation;
     public SpriteRenderer CharacterSprite;
     public SpriteRenderer CompanionSprite;
     public Sprite CharacterSpriteUp;
     public Sprite CharacterSpriteDn;
+
+    public AudioClip hitClip;
+    public AudioClip shootClip;
     //private Sprite CompanionSprite;
 
     // Start is called before the first frame update
@@ -38,6 +46,8 @@ public class CharacterControl: MonoBehaviour
     {
         gameOver = false;
         health = maxHealth;
+        animation = GetComponent<Animator>();
+        AudioSource audio = GetComponent<AudioSource>();
     }
 
 
@@ -79,6 +89,9 @@ public class CharacterControl: MonoBehaviour
         {
             nextFire = Time.time + fireRate;
 
+            GetComponent<AudioSource>().clip = shootClip;
+            GetComponent<AudioSource>().Play();
+
             GameObject shotInstance = Instantiate(projectile, transform.position, transform.rotation);
             shotInstance.GetComponent<Rigidbody2D>().velocity = -heading*10; //shoots in opposite of heading direction cause its just easier to attack approaching enemies that way
         }
@@ -96,9 +109,16 @@ public class CharacterControl: MonoBehaviour
         {
             nextHit = Time.time + hitIframes;
             health -= 1;
-            float increment = 260 / maxHealth; //how much the bar will move up/down based on max hp and 260 (number mask reaches when the bar looks empty)
 
-            HPMASK.offsetMin = new Vector2(increment*(maxHealth-health), 2); //test
+            GetComponent<AudioSource>().clip = hitClip;
+            GetComponent<AudioSource>().Play();
+
+            float increment = health / maxHealth; //how much the bar will move up/down based on max hp and 260 (number mask reaches when the bar looks empty)
+
+            //Debug.Log($"Health: {health}, increment: {increment}");
+
+            healthBar.fillAmount = increment;
+
             if (health <=0)
             {
                 Debug.Log("YOU DEAD");
@@ -170,23 +190,30 @@ public class CharacterControl: MonoBehaviour
         translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
 
+        Vector2 move = new Vector2(translationX, translationY);
 
-        if ( (Mathf.Abs(Input.GetAxisRaw("Horizontal")) + Mathf.Abs(Input.GetAxisRaw("Vertical"))) > 0 )
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+        }
+
+        animation.SetFloat("Horizontal", lookDirection.x);
+        animation.SetFloat("Vertical", lookDirection.y);
+        animation.SetFloat("Speed", move.magnitude);
+
+
+
+        if ((Mathf.Abs(Input.GetAxisRaw("Horizontal")) + Mathf.Abs(Input.GetAxisRaw("Vertical"))) > 0)
+        {
+
             //if holding any direction, update player's heading direction which is used elsewhere to choose which direction to shoot projectile
             heading = Vector3.Normalize(rb.velocity);
         }
 
-        //if (translationX>0) //add when we get the sprite
-        //{
-        //    CharacterSprite.sprite = CharacterSpriteUp
-        //}
-        //else
-        //{
-        //    CharacterSprite.sprite = CharacterSpriteDn
-        //}
 
-        
+
+
         rb.AddForce(Vector3.up * translationY);
         rb.AddForce(Vector3.right * translationX);
 
