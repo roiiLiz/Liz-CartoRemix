@@ -2571,10 +2571,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 894585242}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1009758356}
+        m_TargetAssemblyTypeName: PauseOptions, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3310,6 +3310,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: d6d246ca2797dd046859a7ba821ad5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: d6d246ca2797dd046859a7ba821ad5a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3568,6 +3572,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: 6a253b1a99d0a414abb69002997db15e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: 6a253b1a99d0a414abb69002997db15e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3823,6 +3831,10 @@ PrefabInstance:
     - target: {fileID: 1680682442072957114, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
       propertyPath: m_Pivot.x
@@ -4750,7 +4762,7 @@ GameObject:
   - component: {fileID: 979317451}
   - component: {fileID: 979317450}
   m_Layer: 5
-  m_Name: BackText
+  m_Name: MainMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4795,7 +4807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6778,6 +6790,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: 292b42b6014b383408cdfc51e853bfb7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: 292b42b6014b383408cdfc51e853bfb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7493,6 +7509,10 @@ PrefabInstance:
     - target: {fileID: 1680682442072957114, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
       propertyPath: m_Pivot.x
@@ -9810,6 +9830,10 @@ PrefabInstance:
     - target: {fileID: 1680682442072957114, guid: d0c2d1feaf1095e41a0872b5f01a2344, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680682442072957114, guid: d0c2d1feaf1095e41a0872b5f01a2344, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: d0c2d1feaf1095e41a0872b5f01a2344, type: 3}
       propertyPath: m_Pivot.x

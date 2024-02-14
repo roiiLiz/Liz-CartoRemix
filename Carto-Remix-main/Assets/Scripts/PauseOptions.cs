@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseOptions : MonoBehaviour
 {
@@ -35,5 +36,10 @@ public class PauseOptions : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
