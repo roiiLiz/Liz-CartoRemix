@@ -11,6 +11,12 @@ public class PauseOptions : MonoBehaviour
     public GameObject pauseBox;
     public static bool isGamePaused = false;
 
+    void Awake()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1f;
+    }
+
     void Start() {
         CheckModes();
     }
@@ -44,6 +50,7 @@ public class PauseOptions : MonoBehaviour
     {
         pauseBox.SetActive(false);
         Time.timeScale = 1f;
+        Debug.Log(Time.timeScale);
         isGamePaused = false;
     }
 
@@ -51,6 +58,7 @@ public class PauseOptions : MonoBehaviour
     {
         pauseBox.SetActive(true);
         Time.timeScale = 0f;
+        Debug.Log(Time.timeScale);
         isGamePaused = true;
     }
 }
