@@ -2458,7 +2458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 137}
+  m_AnchoredPosition: {x: 725, y: 300}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &517402964
@@ -3173,6 +3173,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -1117133612671652281, guid: ff680ecaf1ff6cc47ab405bdc45550b2, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: ff680ecaf1ff6cc47ab405bdc45550b2, type: 3}
       propertyPath: m_Name
       value: Tile 1
@@ -4317,9 +4321,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 271838323}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 1009758356}
+        m_TargetAssemblyTypeName: PauseOptions, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6274,6 +6278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -8740416477109580549, guid: cad78e665aec51d498cb8ee6012e0de9, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: cad78e665aec51d498cb8ee6012e0de9, type: 3}
       propertyPath: m_Name
       value: Tile 2
@@ -6415,10 +6423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -10385,7 +10393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1943742543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10499,7 +10507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 88}
+  m_AnchoredPosition: {x: 725, y: 300}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1957037218
@@ -11087,6 +11095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -8173616331966961562, guid: 99eeef62583ef7d4fa686d29e97015c1, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: 99eeef62583ef7d4fa686d29e97015c1, type: 3}
       propertyPath: m_Name
       value: Tile 4

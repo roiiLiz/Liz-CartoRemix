@@ -17,6 +17,8 @@ public class WorldTiles : MonoBehaviour
     static public bool connectedWrong = true;
     static public bool chickenDinner = false;
 
+    public bool moveable = true;
+
     private RaycastHit2D[] hits;
     //private bool startCoroutine = false;
 
@@ -32,9 +34,11 @@ public class WorldTiles : MonoBehaviour
         placedTile = Instantiate(worldTilePrefab,new Vector3(999,999,999),transform.rotation);//place instantiated tiles out of the way lol
         tileSize = placedTile.transform.localScale.x; //only looking for x since tiles will have same xy scale unless we make rectangular tiles 
         //Debug.Log(transform.name);
-        if (transform.name == "Tile 1")
+        if (moveable == false)
         {
-            //placedTile.transform.position = new Vector3(0, 0, 0); //preset the first tile
+            placedTile.transform.position = new Vector3(gameObject.GetComponent<RectTransform>().anchoredPosition.x * (tileSize / 100), gameObject.GetComponent<RectTransform>().anchoredPosition.y * (tileSize / 100), 0);
+            placedTile.transform.eulerAngles = new Vector3(0, 0, gameObject.GetComponent<RectTransform>().eulerAngles.z);
+            StartCoroutine(TestRoutine(0.05f));
         }
         //if (transform.name == "Tile 9(Clone)")// :(
         //{
@@ -134,6 +138,7 @@ public class WorldTiles : MonoBehaviour
         //Debug.Log(connectedRight + "|||"+ connectedWrong + "|||"+ totalPlacedTiles); //should be true false 16??? hmm
         if (connectedRight && !connectedWrong && totalPlacedTiles == 24)
         {
+            MapController.gameIsStarted = true;
             chickenDinner = true;
             canvas.GetComponent<MapController>().placeWinnerTile();
         }

@@ -37,6 +37,8 @@ public class MapController : MonoBehaviour
 
     private bool onlyDoOnce;
 
+    public static bool gameIsStarted;
+
     //public TextMeshProUGUI xButton; //might use these later
     //public TextMeshProUGUI spaceButton;
 
@@ -45,6 +47,7 @@ public class MapController : MonoBehaviour
     void Awake()
     {
         onlyDoOnce = true;
+        gameIsStarted = false;
     }
 
     void Start()
@@ -171,20 +174,16 @@ public class MapController : MonoBehaviour
                     if (holdingTile == null)
                     //if a tile is not picked up then pick up the selected tile
                     {
-
-                        holdingTile = FindClosestTile();
-                        //if (holdingTile.transform.parent == mapUI) 
-                        //{
-                        //    totalPlaced -= 1; //decrement total placed tiles when a player picks up a tile that's on the map. used to check when all tiles are placed
-                        //    Debug.Log("took away a tile:"+totalPlaced);
-                        //}
-                        holdingTile.transform.SetParent(selector.transform);
-                        selector.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                        if (toggleStorage)
-                        {
+                        if (FindClosestTile() != null && FindClosestTile().GetComponent<WorldTiles>().moveable) {
+                            holdingTile = FindClosestTile();
+                            holdingTile.transform.SetParent(selector.transform);
+                            selector.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                        
+                        
+                        if (toggleStorage) {
                             ToggleStorage(0);
+                            }
                         }
-
                     }
                     else
                     //place a tile where the selector is
@@ -451,7 +450,7 @@ public class MapController : MonoBehaviour
                 distance = curDistance;
             }
         }
-        if (distance < 10 && !closest.isStatic) //if cursor is close enough to pick up and the object can be picked up (isstatic)
+        if (distance < 10) //if cursor is close enough to pick up and the object can be picked up (isstatic)
         {
             return closest;
         }
@@ -463,9 +462,11 @@ public class MapController : MonoBehaviour
 
 
     public void placeWinnerTile()
-    {
-        Debug.Log("YAY!!! GENERATE WINNER TILE!");
-        addTile(8);
-    }
+        {
+            if (!gameIsStarted) {
+                Debug.Log("YAY!!! GENERATE WINNER TILE!");
+                addTile(8);
+            }
+        }
 
     }

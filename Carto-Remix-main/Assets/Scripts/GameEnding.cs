@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class GameEnding : MonoBehaviour
 {
-    [SerializeField] public GameObject GameScreen;
-    [SerializeField] public GameObject HealthBar;
-    [SerializeField] public GameObject Character;
-    [SerializeField] public GameObject EndScreen;
-    [SerializeField] public GameObject WinScreen;
-    [SerializeField] public GameObject LoseScreen;
-    [SerializeField] public GameObject PauseScreen;
+    public GameObject GameScreen;
+    public GameObject HealthBar;
+    public GameObject Character;
+    public GameObject EndScreen;
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
+    public GameObject PauseScreen;
     public AudioClip LoseSound;
     public AudioClip WinSound;
     public AudioSource audio;
+    
     private bool audioPlayed;
 
     void Awake() 

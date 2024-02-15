@@ -2354,6 +2354,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -1117133612671652281, guid: ff680ecaf1ff6cc47ab405bdc45550b2, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: ff680ecaf1ff6cc47ab405bdc45550b2, type: 3}
       propertyPath: m_Name
       value: Tile 1
@@ -2785,7 +2789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 137}
+  m_AnchoredPosition: {x: 725, y: 290}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658806285
@@ -3374,9 +3378,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 271838323}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 1009758356}
+        m_TargetAssemblyTypeName: PauseOptions, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3432,6 +3436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -7298092929465202221, guid: d6d246ca2797dd046859a7ba821ad5a6, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: d6d246ca2797dd046859a7ba821ad5a6, type: 3}
       propertyPath: m_Name
       value: Tile 8 (HIDE)
@@ -3694,6 +3702,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -2151158741753731669, guid: 6a253b1a99d0a414abb69002997db15e, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: 6a253b1a99d0a414abb69002997db15e, type: 3}
       propertyPath: m_Name
       value: Tile 6 (HIDE)
@@ -3954,6 +3966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -5671112802586591678, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: f3f9dfa71fe15d54882dfc5a5cb485e4, type: 3}
       propertyPath: m_Name
       value: Tile 9 (HIDE)
@@ -5148,6 +5164,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -8740416477109580549, guid: cad78e665aec51d498cb8ee6012e0de9, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: cad78e665aec51d498cb8ee6012e0de9, type: 3}
       propertyPath: m_Name
       value: Tile 2
@@ -5407,10 +5427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6916,6 +6936,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5483625627521053902, guid: 292b42b6014b383408cdfc51e853bfb7, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8396754162935268446, guid: 292b42b6014b383408cdfc51e853bfb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7624,6 +7648,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -1764251011341499908, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: 14207b17595d915479c042c239ccf4ae, type: 3}
       propertyPath: m_Name
       value: Tile 7 (HIDE)
@@ -8980,7 +9008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 88}
+  m_AnchoredPosition: {x: 725, y: 240}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827154868
@@ -10335,6 +10363,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -4213321244510586690, guid: d0c2d1feaf1095e41a0872b5f01a2344, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: d0c2d1feaf1095e41a0872b5f01a2344, type: 3}
       propertyPath: m_Name
       value: Tile 3 (HIDE)
@@ -10999,6 +11031,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993227271}
     m_Modifications:
+    - target: {fileID: -8173616331966961562, guid: 99eeef62583ef7d4fa686d29e97015c1, type: 3}
+      propertyPath: moveable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680682442072957114, guid: 99eeef62583ef7d4fa686d29e97015c1, type: 3}
       propertyPath: m_Name
       value: Tile 4
